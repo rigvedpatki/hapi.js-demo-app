@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1>List of tasks</h1>
+  <ul class="list-group">
+    {{#each tasks as |task|}}
+    <li class="list-group-item">
+      {{ task.text }}
+      <span class="float-right btn-group">
+        <form action="/tasks/delete/{{task.id}}" method="post">
+          <input type="submit" value="Delete Task" class="btn btn-danger">
+        </form>
+      </span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<br>
+<div class="jumbotron">
+  <h1>Add task</h1>
+  <form action="/tasks" method="post">
+    <div class="input-group">
+      <input type="text" name="text" placeholder="Task" class="form-control">
+      <span class="input-group-btn">
+        <input type="submit" value="Add Task" class="btn btn-primary">
+      </span>
+    </div>
+  </form>
+</div>
